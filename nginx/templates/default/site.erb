@@ -39,6 +39,7 @@ server {
   <% if @application[:ssl_certificate_ca] -%>
   ssl_client_certificate <%= node[:nginx][:dir] %>/ssl/<%= @application[:domains].first %>.ca;
   <% end -%>
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
   location / {
     root   <%= @application[:absolute_document_root] %>;
